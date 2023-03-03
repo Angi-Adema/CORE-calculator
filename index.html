@@ -8,37 +8,47 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main>
-      <h1>CORE Calculator</h1>
-      <p>Please enter dollar amounts in the fields below.</p>
-      <label for="rawMaterials">Raw Materials:</label>
+    <form class="card">
+      <div>
+        <h1>CORE Calculator</h1>
+        <p>Please enter dollar amounts in the fields below.</p>
+      </div>
+      <label for="rawMaterials">Raw Materials: </label>
       <input
-        type="number"
+        type="text"
         id="rawMaterials"
         name="rawMaterials"
         placeholder="Enter Amount $0.00"
+        required
       />
-      <label for="directLabor">Direct Labor:</label>
+
+      <label for="directLabor">Direct Labor: </label>
       <input
-        type="number"
+        type="text"
         id="directLabor"
         name="directLabor"
         placeholder="Enter Amount $0.00"
+        required
       />
-      <label for="shippingCost">Shipping / Transportation Costs:</label>
+
+      <label for="shippingCost">Shipping / Transportation Costs: </label>
       <input
-        type="number"
+        type="text"
         id="shippingCost"
         name="shippingCost"
         placeholder="Enter Amount $0.00"
+        required
       />
-      <label for="salesCommission">Sales Commission:</label>
+
+      <label for="salesCommission">Sales Commission: </label>
       <input
-        type="number"
+        type="text"
         id="salesCommission"
         name="salesCommission"
         placeholder="Enter Amount $0.00"
+        required
       />
-    </main>
+    </form>
+    <script src="calculator.js"></script>
   </body>
 </html>

@@ -5,12 +5,23 @@
 
 .card {
   width: 25%;
-  height: 51vh;
+  height: 56vh;
   margin: 0;
   border: 2px solid black;
   border-radius: 25px;
   padding: 20px;
   background-image: linear-gradient(#a4ccf4, #85ffe2);
+}
+
+form .image {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0;
+}
+
+form .image .card-title {
+  margin: 0 205px 15px 0;
+
 }
 
 label {
@@ -29,23 +40,4 @@ form .total {
   font-size: 25px;
 }
 
-form .image {
-  height: 125px;
-  width: 125px;
-  display: flex;
-  
-  
-}
 
-form .title h2 {
-  margin-top: 38px;
-  display: flex;
-  position: absolute;
-}
-
-form .title h1 {
-  margin: 0;
-  display: flex;
-  position: absolute;
-  margin-left: 0
-}

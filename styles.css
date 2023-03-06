@@ -1,21 +1,30 @@
 * {
-    margin: 0;
-    padding: 2px;
+  margin: 0;
+  padding: 2px;
 }
 
 .card {
-    width: 25%;
-    height: 50vh;
-    margin: 0;
-    border: 2px solid black;
-    border-radius: 25px;
-    padding: 20px;
-    background-color: #9bdce9;
+  width: 25%;
+  height: 50vh;
+  margin: 0;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 20px;
+  background-color: #9bdce9;
 }
 
 label {
-   display: block; 
-   margin-top: 10px;
-   font-style: bold;
+  display: block;
+  margin-top: 10px;
+  font-style: bold;
 }
 
+form .fields {
+  font-style: italic;
+}
+
+form .total {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 25px;
+}

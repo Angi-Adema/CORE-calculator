@@ -1,27 +1,27 @@
 * {
   margin: 0;
-  padding: 2px;
+  padding:0;
 }
 
 .card {
-  width: 25%;
+  display: flex;
+  flex-direction: column;
+  min-width: 30%;
+  max-width: 30%;
   height: 55vh;
-  margin: 0;
   border: 2px solid black;
   border-radius: 25px;
   padding: 20px;
   background-image: linear-gradient(#a4ccf4, #85ffe2);
 }
 
-form .image {
+.image, .total {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
-form .image .card-title {
-  margin: 0 205px 15px 0;
-}
+
 
 label {
   display: block;
@@ -29,29 +29,23 @@ label {
   font-style: bold;
 }
 
-form .fields {
+.fields {
   font-style: italic;
+  margin-bottom: 5px;
 }
 
-form .total p {
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  justify-content: end;
-  margin-right: 125px;
+.total p{
+  padding-right: 30px;
 }
 
-form .total .btn {
-  display: flex;
-  margin-top: 15px;
-  margin-bottom: -25px;
+
+.btn {
   background-color: #80b8ef;
   padding: 5px;
   border-radius: 3px;
 }
 
-form .total .btn:hover {
-  background-color: #80b8ef;
+.btn:hover {
   opacity: 0.7;
   cursor: pointer;
 }

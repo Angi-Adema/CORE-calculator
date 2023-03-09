@@ -16,56 +16,98 @@
         </div>
         <img src="./assets/Transparent Logo.png" width="55px" height="55px" />
       </div>
+
+      <p>Please enter requested data into the fields below.</p>
+
       <div class="fields">
-        <p>Please enter dollar amounts in the fields below.</p>
         <label for="rawMaterials">Raw Materials: </label>
         <input
-        type="number"
-        id="rawMaterials"
-        name="rawMaterials"
-        placeholder="Enter Amount $0.00"
-        min="0.00"
-        step="0.01"
-        required
-      />
+          type="number"
+          id="rawMaterials"
+          name="rawMaterials"
+          placeholder="Enter Amount $0.00"
+          min="0.00"
+          step="0.01"
+          required
+        />
 
-      <label for="directLabor">Direct Labor: </label>
-      <input
-      type="number"
-        id="directLabor"
-        name="directLabor"
-        placeholder="Enter Amount $0.00"
-        min="0.00"
-        step="0.01"
-        required
-      />
-      
-      <label for="shippingCost">Shipping / Transportation Costs: </label>
-      <input
-      type="number"
-        id="shippingCost"
-        name="shippingCost"
-        placeholder="Enter Amount $0.00"
-        min="0.00"
-        step="0.01"
-        required
-      />
-      
-      <label for="salesCommission">Sales Commission: </label>
-      <input
-        type="number"
-        id="salesCommission"
-        name="salesCommission"
-        placeholder="Enter Amount $0.00"
-        min="0.00"
-        step="0.01"
-        required
+        <label for="directLabor">Direct Labor: </label>
+        <input
+          type="number"
+          id="directLabor"
+          name="directLabor"
+          placeholder="Enter Amount $0.00"
+          min="0.00"
+          step="0.01"
+          required
+        />
+
+        <label for="shippingCost">Shipping / Transportation Costs: </label>
+        <input
+          type="number"
+          id="shippingCost"
+          name="shippingCost"
+          placeholder="Enter Amount $0.00"
+          min="0.00"
+          step="0.01"
+          required
+        />
+
+        <label for="salesCommission">Sales Commission: </label>
+        <input
+          type="number"
+          id="salesCommission"
+          name="salesCommission"
+          placeholder="Enter Percentage %"
+          min="0"
+          max="100"
+          step="0.01"
+          required
+        />
+
+        <label for="jobHours">Total Number of Hours: </label>
+        <input
+          type="number"
+          id="jobHours"
+          name="jobHours"
+          placeholder="Enter Total Job Hours"
+          min="0.00"
+          step="0.01"
+          required
+        />
+
+        <label for="materialsMarkup">Materials Markup: </label>
+        <input
+          type="number"
+          id="materialsMarkup"
+          name="materialsMarkup"
+          placeholder="Enter Percentage %"
+          min="0"
+          max="100"
+          step="0.01"
+          required
+        />
+
+        <label for="laborMarkup">Labor Markup: </label>
+        <input
+          type="number"
+          id="laborMarkup"
+          name="laborMarkup"
+          placeholder="Enter Percentage %"
+          min="0"
+          max="100"
+          step="0.01"
+          required
         />
       </div>
-        
       <div class="total">
-        <button class="btn" type="submit" >Calculate</button>
-          <p>TOTAL: <span id="final-total"></span></p>
+        <button class="btn" type="submit">Calculate</button>
+      </div>
+      <div class="hourly-min">
+        <p>TOTAL Hourly Min: <span id="final-total"></span></p>
+      </div>
+      <div class="gross-hourly">
+        <p>TOTAL Gross Hourly: <span id="final-total"></span></p>
       </div>
     </form>
     <script src="script.js"></script>

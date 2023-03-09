@@ -8,7 +8,7 @@
   flex-direction: column;
   min-width: 20%;
   max-width: 30%;
-  height: 70vh;
+  height: 75vh;
   border: 2px solid black;
   border-radius: 25px;
   padding: 20px;
@@ -21,6 +21,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+fieldset {
+  border: none;
+  padding: 6px 0;
+  border-bottom: 3px solid #3b3b4f;
 }
 
 label {
@@ -51,10 +57,11 @@ input {
 }
 
 .btn {
+  font-weight: bold;
   background-color: #80b8ef;
   padding: 5px;
   border-radius: 3px;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .btn:hover {

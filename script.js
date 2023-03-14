@@ -38,20 +38,31 @@ function calculator(e) {
     laborMarkupVal
   ) {
     const materialsCost = rawMaterialVal / (1 - materialsMarkupVal);
-    const laborAndMarkup =
-      directLaborVal / (1 - laborMarkupVal);
+    const laborAndMarkup = directLaborVal / (1 - laborMarkupVal);
     const shippingCost = shippingCostVal;
-    const grossHourlyTotal = materialsCost + laborAndMarkup + shippingCost / jobHoursVal;
+    const grossTotal = materialsCost + laborAndMarkup + shippingCost;
+    const grossHourlyTotal = grossTotal / jobHoursVal;
     grossHourlyTotal.textContent = "$" + totalAmount;
-  };
+  }
 
-  // function calculateMinHourly(rawMaterialVal, directLaborVal, jobHoursVal, shippingCostVal, salesCommissionVal) {
-  //   const materialsCost = rawMaterialVal / (laborMarkupVal * jobHoursVal) + shippingCostVal;
-  //   const total = materialsCost / (1 - salesCommissionVal);
-  //   const minHourly = total /
+  // function calculateMinHourly(rawMaterialVal, directLaborVal, jobHoursVal, shippingCostVal) {
+  //   const materialsCost = rawMaterialVal;
+  //   const laborCost = directLaborVal * jobHoursVal;
+  //   const shippingCost = shippingCostVal;
+  //   const hourlyCost = materialsCost + laborCost + shippingCost;
+  //   const minHourlyTotal = hourlyCost / jobHoursVal;
+  //   minHourlyTotal.textContent = "$ + totalAmount";
   // }
 }
 
 console.log(calculateGrossHourly);
 
 calculateButton.addEventListener("submit", calculator);
+
+document.getElementById("calculate")
+  .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      document.getElementById("calculate").click();
+    }
+  });

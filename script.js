@@ -5,62 +5,51 @@ const jobHours = document.getElementById("jobHours");
 const materialsMarkup = document.getElementById("materialsMarkup");
 const laborMarkup = document.getElementById("laborMarkup");
 const calculateButton = document.getElementById("calculate");
-const finalTotal = document.getElementById("final-total");
+const finalGrossTotal = document.getElementById("final-gross-total");
+const finalMinTotal = document.getElementById("final-hourly-total");
 
 function calculator(e) {
   e.preventDefault();
+  // initial values from HTML
   const rawMaterialVal = parseFloat(rawMaterials.value);
   const directLaborVal = parseFloat(directLabor.value);
   const shippingCostVal = parseFloat(shippingCost.value);
   const jobHoursVal = parseFloat(jobHours.value);
   const materialsMarkupVal = parseFloat(materialsMarkup.value);
+  const markupPercentage = (materialsMarkupVal / 100) - 1;
   const laborMarkupVal = parseFloat(laborMarkup.value);
+  const laborPercentage = (laborMarkupVal / 100) - 1;
 
-  const arr = [
-    rawMaterialVal,
-    directLaborVal,
-    shippingCostVal,
-    jobHoursVal,
-    materialsMarkupVal,
-    laborMarkupVal,
-  ];
+  // calculated GROSS values
+  const materialsCost = Math.abs(Number((rawMaterialVal / markupPercentage).toFixed(2)));
+  const laborAndMarkup = Math.abs(Number((directLaborVal / laborPercentage).toFixed(2)));
+  
+  const grossTotal = materialsCost + laborAndMarkup + shippingCostVal;
+  const grossHourlyTotal = Number((grossTotal / jobHoursVal).toFixed(2));
 
-  //   const totalAmount = arr.reduce((partialSum, a) => partialSum + a, 0);
-  //   finalTotal.textContent = "$" + totalAmount;
-  // }
+// calculated MIN values
 
-  function calculateGrossHourly(
-    rawMaterialVal,
-    directLaborVal,
-    shippingCostVal,
-    jobHoursVal,
-    materialsMarkupVal,
-    laborMarkupVal
-  ) {
-    const materialsCost = rawMaterialVal / (1 - materialsMarkupVal);
-    const laborAndMarkup = directLaborVal / (1 - laborMarkupVal);
-    const shippingCost = shippingCostVal;
-    const grossTotal = materialsCost + laborAndMarkup + shippingCost;
-    const grossHourlyTotal = grossTotal / jobHoursVal;
-    grossHourlyTotal.textContent = "$" + totalAmount;
-  }
+  const laborCost = directLaborVal * jobHoursVal;
+  const hourlyCost = rawMaterialVal + laborCost + shippingCostVal;
+  const minHourlyTotal = hourlyCost / jobHoursVal;
 
-  // function calculateMinHourly(rawMaterialVal, directLaborVal, jobHoursVal, shippingCostVal) {
-  //   const materialsCost = rawMaterialVal;
-  //   const laborCost = directLaborVal * jobHoursVal;
-  //   const shippingCost = shippingCostVal;
-  //   const hourlyCost = materialsCost + laborCost + shippingCost;
-  //   const minHourlyTotal = hourlyCost / jobHoursVal;
-  //   minHourlyTotal.textContent = "$ + totalAmount";
-  // }
+// FINAL AMOUNTS FOR HTML
+
+finalGrossTotal.textContent = "$" + grossHourlyTotal;
+finalMinTotal.textContent = "$" + minHourlyTotal;
+
 }
 
-console.log(calculateGrossHourly);
-
+// let string = '%'
 calculateButton.addEventListener("submit", calculator);
+// materialsMarkup.addEventListener('input', function(){
+//   this.value = string.replace('%', '') + '%'
 
-document.getElementById("calculate")
-  .addEventListener("keyup", function(event) {
+// })
+
+document
+  .getElementById("calculate")
+  .addEventListener("keyup", function (event) {
     event.preventDefault();
     if (event.keyCode === 13) {
       document.getElementById("calculate").click();

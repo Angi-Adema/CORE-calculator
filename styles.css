@@ -6,8 +6,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  min-width: 50%;
-  max-width: 60%;
+  min-width: 25%;
+  max-width: 30%;
   height: auto;
   border: 2px solid black;
   border-radius: 25px;
@@ -83,4 +83,11 @@ input {
 
 .footer {
   margin-left: 15px;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .card {
+    min-width: 40%;
+    max-width: 50%;
+  }
 }

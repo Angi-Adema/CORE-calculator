@@ -6,8 +6,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  min-width: 40%;
-  max-width: 50%;
+  min-width: 50%;
+  max-width: 60%;
   height: auto;
   border: 2px solid black;
   border-radius: 25px;

@@ -51,6 +51,11 @@ input {
   font-size: 20px;
 }
 
+.hourly-profit {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .fields {
   font-weight: bold;
   margin-bottom: 5px;
@@ -62,6 +67,7 @@ input {
   padding: 5px;
   border-radius: 3px;
   margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .btn:hover {

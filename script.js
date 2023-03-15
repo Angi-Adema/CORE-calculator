@@ -7,6 +7,7 @@ const laborMarkup = document.getElementById("laborMarkup");
 const calculateButton = document.getElementById("calculate");
 const finalGrossTotal = document.getElementById("final-gross-total");
 const finalMinTotal = document.getElementById("final-hourly-total");
+const finalProfitPerHour = document.getElementById("profit-per-hour");
 
 function calculator(e) {
   e.preventDefault();
@@ -16,28 +17,43 @@ function calculator(e) {
   const shippingCostVal = parseFloat(shippingCost.value);
   const jobHoursVal = parseFloat(jobHours.value);
   const materialsMarkupVal = parseFloat(materialsMarkup.value);
-  const markupPercentage = (materialsMarkupVal / 100) - 1;
+
+  const markupPercentage = 1 - materialsMarkupVal / 100;
+  // const markupPercentage = materialsMarkupVal / 100 - 1;
+
   const laborMarkupVal = parseFloat(laborMarkup.value);
-  const laborPercentage = (laborMarkupVal / 100) - 1;
+
+  const laborPercentage = 1 - laborMarkupVal / 100;
+  // const laborPercentage = laborMarkupVal / 100 - 1;
 
   // calculated GROSS values
-  const materialsCost = Math.abs(Number((rawMaterialVal / markupPercentage).toFixed(2)));
-  const laborAndMarkup = Math.abs(Number((directLaborVal / laborPercentage).toFixed(2)));
-  
+  const materialsCost = Number((rawMaterialVal / markupPercentage).toFixed(2));
+  const laborAndMarkup = Number(
+    ((directLaborVal / laborPercentage) * jobHoursVal).toFixed(2)
+  );
+
+  console.log(laborAndMarkup);
+
+  // const materialsCost = Math.abs(Number((rawMaterialVal / markupPercentage).toFixed(2)));
+  // const laborAndMarkup = Math.abs(Number((directLaborVal / laborPercentage).toFixed(2)));
+
   const grossTotal = materialsCost + laborAndMarkup + shippingCostVal;
   const grossHourlyTotal = Number((grossTotal / jobHoursVal).toFixed(2));
 
-// calculated MIN values
+  // calculated MIN values
 
   const laborCost = directLaborVal * jobHoursVal;
   const hourlyCost = rawMaterialVal + laborCost + shippingCostVal;
   const minHourlyTotal = hourlyCost / jobHoursVal;
 
-// FINAL AMOUNTS FOR HTML
+  // FINAL Profit
+  const profitPerHour = Number((grossHourlyTotal - minHourlyTotal).toFixed(2));
 
-finalGrossTotal.textContent = "$" + grossHourlyTotal;
-finalMinTotal.textContent = "$" + minHourlyTotal;
+  // FINAL AMOUNTS FOR HTML
 
+  finalGrossTotal.textContent = "$" + grossHourlyTotal;
+  finalMinTotal.textContent = "$" + minHourlyTotal;
+  finalProfitPerHour.textContent = "$" + profitPerHour;
 }
 
 // let string = '%'

@@ -18,25 +18,16 @@ function calculator(e) {
   const shippingCostVal = parseFloat(shippingCost.value);
   const jobHoursVal = parseFloat(jobHours.value);
   const materialsMarkupVal = parseFloat(materialsMarkup.value);
-
   const markupPercentage = 1 - materialsMarkupVal / 100;
-  // const markupPercentage = materialsMarkupVal / 100 - 1;
-
   const laborMarkupVal = parseFloat(laborMarkup.value);
-
   const laborPercentage = 1 - laborMarkupVal / 100;
-  // const laborPercentage = laborMarkupVal / 100 - 1;
+  
 
   // calculated GROSS values
   const materialsCost = Number((rawMaterialVal / markupPercentage).toFixed(2));
   const laborAndMarkup = Number(
     ((directLaborVal / laborPercentage) * jobHoursVal).toFixed(2)
   );
-
-  console.log(laborAndMarkup);
-
-  // const materialsCost = Math.abs(Number((rawMaterialVal / markupPercentage).toFixed(2)));
-  // const laborAndMarkup = Math.abs(Number((directLaborVal / laborPercentage).toFixed(2)));
 
   const grossTotal = materialsCost + laborAndMarkup + shippingCostVal;
   const grossHourlyTotal = Number((grossTotal / jobHoursVal).toFixed(2));

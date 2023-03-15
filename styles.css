@@ -85,7 +85,7 @@ input {
   margin-left: 15px;
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 600px) {
   .card {
     min-width: 50%;
     max-width: 70%;

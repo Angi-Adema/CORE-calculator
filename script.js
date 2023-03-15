@@ -8,6 +8,7 @@ const calculateButton = document.getElementById("calculate");
 const finalGrossTotal = document.getElementById("final-gross-total");
 const finalMinTotal = document.getElementById("final-hourly-total");
 const finalProfitPerHour = document.getElementById("profit-per-hour");
+const flatRatePrice = document.getElementById("flat-rate-price");
 
 function calculator(e) {
   e.preventDefault();
@@ -49,11 +50,15 @@ function calculator(e) {
   // FINAL Profit
   const profitPerHour = Number((grossHourlyTotal - minHourlyTotal).toFixed(2));
 
+  // Flat Rate Price
+  const flatRate = Number((grossHourlyTotal * jobHoursVal).toFixed(2));
+
   // FINAL AMOUNTS FOR HTML
 
   finalGrossTotal.textContent = "$" + grossHourlyTotal;
   finalMinTotal.textContent = "$" + minHourlyTotal;
   finalProfitPerHour.textContent = "$" + profitPerHour;
+  flatRatePrice.textContent = "$" + flatRate;
 }
 
 // let string = '%'

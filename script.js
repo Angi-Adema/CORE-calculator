@@ -21,35 +21,64 @@ function calculator(e) {
   const markupPercentage = 1 - materialsMarkupVal / 100;
   const laborMarkupVal = parseFloat(laborMarkup.value);
   const laborPercentage = 1 - laborMarkupVal / 100;
-  
 
   // calculated GROSS values
-  const materialsCost = Number((rawMaterialVal / markupPercentage).toFixed(2));
+  const materialsCost = Number(parseFloat(rawMaterialVal / markupPercentage));
+
   const laborAndMarkup = Number(
-    ((directLaborVal / laborPercentage) * jobHoursVal).toFixed(2)
+    parseFloat(directLaborVal / laborPercentage) * jobHoursVal
   );
 
-  const grossTotal = materialsCost + laborAndMarkup + shippingCostVal;
-  const grossHourlyTotal = Number((grossTotal / jobHoursVal).toFixed(2));
+  const grossTotal = parseFloat(
+    materialsCost + laborAndMarkup + shippingCostVal
+  );
+  const grossHourlyTotal = Number(parseFloat(grossTotal / jobHoursVal));
 
   // calculated MIN values
-
-  const laborCost = directLaborVal * jobHoursVal;
-  const hourlyCost = rawMaterialVal + laborCost + shippingCostVal;
-  const minHourlyTotal = hourlyCost / jobHoursVal;
+  const laborCost = parseFloat(directLaborVal * jobHoursVal);
+  const hourlyCost =
+    rawMaterialVal + parseFloat(directLaborVal * jobHoursVal) + shippingCostVal;
+  const minHourlyTotal = parseFloat(hourlyCost / jobHoursVal);
 
   // FINAL Profit
-  const profitPerHour = Number((grossHourlyTotal - minHourlyTotal).toFixed(2));
+  const profitPerHour = Number(grossHourlyTotal - minHourlyTotal);
 
   // Flat Rate Price
-  const flatRate = Number((grossHourlyTotal * jobHoursVal).toFixed(2));
+  const flatRate = Number(parseFloat(grossHourlyTotal * jobHoursVal));
+
+  // Return zero instead of "NaN" when only zeros are entered
+  if (
+    rawMaterialVal === 0 &&
+    directLaborVal === 0 &&
+    materialsMarkupVal === 0 &&
+    laborMarkupVal === 0
+  ) {
+    finalGrossTotal.textContent = "$0.00";
+    finalMinTotal.textContent = "$0.00";
+    finalProfitPerHour.textContent = "$0.00";
+    flatRatePrice.textContent = "$0.00";
+    return;
+  }
 
   // FINAL AMOUNTS FOR HTML
 
-  finalGrossTotal.textContent = "$" + grossHourlyTotal;
-  finalMinTotal.textContent = "$" + minHourlyTotal;
-  finalProfitPerHour.textContent = "$" + profitPerHour;
-  flatRatePrice.textContent = "$" + flatRate;
+  finalGrossTotal.textContent =
+    "$" +
+    Number(parseFloat(grossHourlyTotal))
+      .toFixed(2)
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  finalMinTotal.textContent =
+    "$" +
+    Number(parseFloat(minHourlyTotal))
+      .toFixed(2)
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  finalProfitPerHour.textContent =
+    "$" +
+    Number(parseFloat(profitPerHour))
+      .toFixed(2)
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  flatRatePrice.textContent =
+    "$" + flatRate.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 // let string = '%'

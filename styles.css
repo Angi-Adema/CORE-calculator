@@ -3,8 +3,13 @@
   padding: 0;
 }
 
-.card {
-  display: flex;
+.cardBody {
+  text-align: center;
+}
+
+.cardForm {
+  display: inline-block;
+  justify-content: center;
   flex-direction: column;
   min-width: 25%;
   max-width: 30%;

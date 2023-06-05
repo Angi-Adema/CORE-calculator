@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CORE Calculator</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Edu+NSW+ACT+Foundation&family=Mulish:ital,wght@0,200;0,400;0,600;0,900;1,400;1,700&family=Playfair+Display:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
   </head>
   <body>
-    <form class="card" id="calculate">
+    <div class="cardBody">
+    <form class="cardForm" id="calculate">
       <div class="image">
         <div class="card-title">
           <h1>CORE Calculator</h1>
@@ -107,13 +112,20 @@
         <p>Flat Rate Price: <span id="flat-rate-price"></span></p>
       </div>
     </form>
+  </div>
     <script src="script.js"></script>
   </body>
-  <footer class="footer">
-    <p>
+  <footer>
+    <div class="footer">
+    <p class="footerLnOne">
       &copy 2023
-      <a href="https://ContractorStartupClub.com">ContractorStartupClub.com</a>.
-      All rights reserved.
     </p>
+        <p class="footerLnTwo">
+      <a href="https://ContractorStartupClub.com">ContractorStartupClub.com</a>
+      </p>
+      <p class="footerLnThree">
+      All rights reserved
+    </p>
+  </div>
   </footer>
 </html>
